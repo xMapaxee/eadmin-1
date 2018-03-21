@@ -17,49 +17,48 @@ public class ExpedienteTest {
 	private static final Boolean PUBLICO = true;
 	private static final EstadoExpediente ESTADO = EstadoExpediente.ARCHIVADO;
 	private static final List<Documento> lISTA_DOCUMENTO = new ArrayList<>();
-	Expediente prueba; Expediente prueba2;
-	
+	Expediente prueba;
+	Expediente prueba2;
+
 	@Before
 	public void crearInstancias() {
-		prueba = new Expediente(CODIGO,NOMBRE,FECHA_CREACION,FECHA_ARCHIVADO,PUBLICO,ESTADO,lISTA_DOCUMENTO);
-		prueba2 = new Expediente(CODIGO,NOMBRE,FECHA_CREACION,FECHA_ARCHIVADO,PUBLICO,ESTADO,lISTA_DOCUMENTO);
+		prueba = new Expediente(CODIGO, NOMBRE, FECHA_CREACION, FECHA_ARCHIVADO, PUBLICO, ESTADO, lISTA_DOCUMENTO);
+		prueba2 = new Expediente(CODIGO, NOMBRE, FECHA_CREACION, FECHA_ARCHIVADO, PUBLICO, ESTADO, lISTA_DOCUMENTO);
 	}
 
 	@Test
 	public final void testHashCode() {
-		
-		assertEquals(prueba.hashCode(),CODIGO.hashCode() + NOMBRE.hashCode() + FECHA_CREACION.hashCode() 
-		+ FECHA_ARCHIVADO.hashCode() + PUBLICO.hashCode() + ESTADO.hashCode());
-		
+
+		assertEquals(CODIGO.hashCode() + NOMBRE.hashCode() + FECHA_CREACION.hashCode() + FECHA_ARCHIVADO.hashCode()
+				+ PUBLICO.hashCode() + ESTADO.hashCode(), prueba.hashCode());
+
 	}
 
 	@Test
 	public final void testGetters() {
-		
-		assertEquals(prueba.getCodigo(),CODIGO);
-		assertEquals(prueba.getNombre(),NOMBRE);
-		assertEquals(prueba.getFechaCreacion(),FECHA_CREACION);
-		assertEquals(prueba.getFechaArchivado(),FECHA_ARCHIVADO);
-		assertEquals(prueba.getPublico(),PUBLICO);
-		assertEquals(prueba.getEstado(),ESTADO);
-		assertEquals(prueba.getListaDocumento(), null);
-		
+
+		assertEquals(FECHA_ARCHIVADO, prueba.getFechaArchivado());
+		assertEquals(ESTADO, prueba.getEstado());
+		assertEquals(null, prueba.getListaDocumento());
+
 	}
 
 	@Test
 	public final void testEqualsObject() {
-		
-		assertEquals(prueba.equals(prueba2),true);
-		assertEquals(prueba.equals("Hola!"), false);
-		
+
+		assertEquals(true, prueba.equals(prueba2));
+		assertEquals(false, prueba.equals("Hola!"));
+
 	}
 
 	@Test
 	public final void testToString() {
-		
-		assertEquals(prueba.toString(),"Expediente código = " + CODIGO + ", nombre = " + NOMBRE + ", fechaCreacion = " + FECHA_CREACION
-				+ ", fechaArchivado = " + FECHA_ARCHIVADO + ", publico = " + PUBLICO + ", estado = " + ESTADO);
-		
+
+		assertEquals(
+				"Expediente código = " + CODIGO + ", nombre = " + NOMBRE + ", fechaCreacion = " + FECHA_CREACION
+						+ ", fechaArchivado = " + FECHA_ARCHIVADO + ", publico = " + PUBLICO + ", estado = " + ESTADO,
+				prueba.toString());
+
 	}
 
 }
